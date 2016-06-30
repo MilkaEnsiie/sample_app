@@ -14,8 +14,20 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :mailjet
+        
+  config.action_mailer.smtp_settings = {
+    :address => "in.mailjet.com",
+    :enable_starttls_auto => true,
+    :port => 587,
+    :authentication => 'plain',
+    :user_name => " 23cae2717d9b77a2be54a8e8d216eed3 ",
+    :password => "1e8a00c5af7c5ffb79657fc51a2e7641"
+  }
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.delivery_method = :test
   host = 'tutorial-milka-ensiie.c9users.io'
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
