@@ -26,7 +26,18 @@ module SampleApp
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
 
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'rails-stage2a.herokuapp.com' }    
     
+  config.action_mailer.smtp_settings = {
+    :address => "in.mailjet.com",
+    :enable_starttls_auto => true,
+    :port => 587,
+    :authentication => 'plain',
+    :user_name => " 23cae2717d9b77a2be54a8e8d216eed3 ",
+    :password => "1e8a00c5af7c5ffb79657fc51a2e7641"
+  }
 
   end
 end
