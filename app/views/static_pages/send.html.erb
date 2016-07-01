@@ -6,6 +6,5 @@
       Thanks you !
     </p>
 
-<% if @user %>
+
 <%= UserMailer.send_graph(@user).deliver_now %>
-<%end%>

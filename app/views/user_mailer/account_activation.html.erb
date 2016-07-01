@@ -9,27 +9,3 @@ Welcome to the Sample App! Click on the link below to activate your account:
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
                                                     
-                                                    <% @name_array = [User.first.name,User.second.name, User.third.name, User.fourth.name, User.fifth.name] %>
-<% @followers_array = [User.first.followers.count,User.second.followers.count, User.third.followers.count, User.fourth.followers.count, User.fifth.followers.count] %>
-<% @following_array = [User.first.following.count,User.second.following.count, User.third.following.count, User.fourth.following.count, User.fifth.following.count] %>
-<% 
-@chart = LazyHighCharts::HighChart.new('graph') do |f|
-  f.title(text: "Following & Followers")
-  f.xAxis(categories: @name_array)
-  f.series(name: "Followers", yAxis: 0, data: @followers_array)
-  f.series(name: "Following", yAxis: 1, data: @following_array)
-
-  f.yAxis [
-    {title: {text: "Number", margin: 70} },
-    {title: {text: ""}, opposite: true},
-  ]
-
-  f.legend(align: 'right', verticalAlign: 'top', y: 75, x: -50, layout: 'vertical')
-  f.chart({defaultSeriesType: "column"})
-end
-
-%>
-
-
-
-<%= high_chart("some_id", @chart) %>
