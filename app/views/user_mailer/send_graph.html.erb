@@ -1,15 +1,12 @@
-<h1>Sample App</h1>
+<h1>TEST !</h1>
 
 <p>Hi <%= @user.name %>,</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+Welcome to the Sample App! We can see the followers & following of five persons
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
-                                                    
-                                                    <% @name_array = [User.first.name,User.second.name, User.third.name, User.fourth.name, User.fifth.name] %>
+<% @name_array = [User.first.name,User.second.name, User.third.name, User.fourth.name, User.fifth.name] %>
 <% @followers_array = [User.first.followers.count,User.second.followers.count, User.third.followers.count, User.fourth.followers.count, User.fifth.followers.count] %>
 <% @following_array = [User.first.following.count,User.second.following.count, User.third.following.count, User.fourth.following.count, User.fifth.following.count] %>
 <% 

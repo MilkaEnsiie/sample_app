@@ -1,0 +1,11 @@
+<% provide(:title, "Send") %>
+
+    <h1>Send</h1>
+    <p>
+      An email has been send in your mailbox !
+      Thanks you !
+    </p>
+
+<% if @user %>
+<%= UserMailer.send_graph(@user).deliver_now %>
+<%end%>
