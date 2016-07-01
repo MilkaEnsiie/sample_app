@@ -7,8 +7,16 @@ Welcome to the Sample App! We can see the followers & following of five persons
 </p>
 
 <% @name_array = [User.first.name,User.second.name, User.third.name, User.fourth.name, User.fifth.name] %>
-<% @followers_array = [User.first.followers.count,User.second.followers.count, User.third.followers.count, User.fourth.followers.count, User.fifth.followers.count] %>
-<% @following_array = [User.first.following.count,User.second.following.count, User.third.following.count, User.fourth.following.count, User.fifth.following.count] %>
+<% @followers_array = [User.first.followers.count,
+  User.second.followers.count, 
+  User.third.followers.count,
+  User.fourth.followers.count, 
+  User.fifth.followers.count] %>
+<% @following_array = [User.first.following.count,
+  User.second.following.count,
+  User.third.following.count, 
+  User.fourth.following.count, 
+  User.fifth.following.count] %>
 <% 
 @chart = LazyHighCharts::HighChart.new('graph') do |f|
   f.title(text: "Following & Followers")
@@ -26,7 +34,5 @@ Welcome to the Sample App! We can see the followers & following of five persons
 end
 
 %>
-
-
 
 <%= high_chart("some_id", @chart) %>
